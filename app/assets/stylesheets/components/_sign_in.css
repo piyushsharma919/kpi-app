@@ -1,0 +1,90 @@
+/* ==========================================================================
+  Sign In Component
+========================================================================== */
+
+.sign-in {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-8) var(--spacing-4);
+}
+
+.sign-in__container {
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--color-surface);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: var(--spacing-8);
+}
+
+.sign-in__header {
+  text-align: center;
+  margin-bottom: var(--spacing-8);
+}
+
+.sign-in__title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-2);
+}
+
+.sign-in__subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+}
+
+.sign-in__form {
+  margin-bottom: var(--spacing-6);
+}
+
+.sign-in__footer {
+  text-align: center;
+  padding-top: var(--spacing-6);
+  border-top: var(--border-width) solid var(--color-border);
+}
+
+.sign-in__text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+}
+
+.sign-in__link {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  transition: color var(--transition-duration) var(--transition-timing);
+}
+
+.sign-in__link:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+.form-link {
+  font-size: var(--font-size-sm);
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-duration) var(--transition-timing);
+}
+
+.form-link:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .sign-in__container {
+    padding: var(--spacing-6);
+  }
+
+  .sign-in__title {
+    font-size: var(--font-size-xl);
+  }
+
+  .sign-in__subtitle {
+    font-size: var(--font-size-sm);
+  }
+}

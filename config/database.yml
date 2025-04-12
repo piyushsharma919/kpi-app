@@ -1,0 +1,38 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS", 5) %>
+  host: <%= ENV.fetch("DB_HOST", "localhost") %>
+  port: <%= ENV.fetch("DB_PORT", 5432) %>
+  username: <%= ENV["DB_USERNAME"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
+
+development:
+  <<: *default
+  database: <%= ENV.fetch("DB_NAME_DEVELOPMENT", "kpi_development") %>
+
+test:
+  <<: *default
+  database: <%= ENV.fetch("DB_NAME_TEST", "kpi_test") %>
+
+production:
+  primary: &primary_production
+    <<: *default
+    database: <%= ENV.fetch("DB_NAME_PRODUCTION", "kpi_production") %>
+    username: <%= ENV.fetch("DB_USERNAME_PRODUCTION", "kpi") %>
+    password: <%= ENV["DB_PASSWORD_PRODUCTION"] %>
+
+  cache:
+    <<: *primary_production
+    database: <%= ENV.fetch("DB_NAME_PRODUCTION_CACHE", "kpi_production_cache") %>
+    migrations_paths: db/cache_migrate
+
+  queue:
+    <<: *primary_production
+    database: <%= ENV.fetch("DB_NAME_PRODUCTION_QUEUE", "kpi_production_queue") %>
+    migrations_paths: db/queue_migrate
+
+  cable:
+    <<: *primary_production
+    database: <%= ENV.fetch("DB_NAME_PRODUCTION_CABLE", "kpi_production_cable") %>
+    migrations_paths: db/cable_migrate
