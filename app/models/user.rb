@@ -49,8 +49,8 @@ class User < ApplicationRecord
   end
 
   def role
-    return 'employer' if employer_companies.exists?
-    return 'employee' if employee_companies.exists?
+    return "employer" if employer_companies.exists?
+    "employee" if employee_companies.exists?
   end
 
   def is_owner?(company)
