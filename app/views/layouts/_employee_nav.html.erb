@@ -1,0 +1,39 @@
+<nav class="dashboard__nav">
+  <ul class="dashboard__nav-list">
+    <li class="dashboard__nav-item">
+      <%= link_to dashboard_index_path, class: "dashboard__nav-link" do %>
+        <i class="fas fa-home"></i>
+        <span>Dashboard</span>
+      <% end %>
+    </li>
+    <li class="dashboard__nav-item">
+      <div class="dashboard__nav-group">
+        <button class="dashboard__nav-link dashboard__nav-link--group" data-action="click->nav#toggleGroup">
+          <i class="fas fa-question-circle"></i>
+          <span>Quizzes</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <ul class="dashboard__nav-submenu">
+          <li class="dashboard__nav-subitem">
+            <%= link_to '#', class: "dashboard__nav-sublink" do %>
+              <i class="fas fa-spinner"></i>
+              <span>In Progress</span>
+            <% end %>
+          </li>
+          <li class="dashboard__nav-subitem">
+            <%= link_to '#', class: "dashboard__nav-sublink" do %>
+              <i class="fas fa-unlock"></i>
+              <span>Open</span>
+            <% end %>
+          </li>
+          <li class="dashboard__nav-subitem">
+            <%= link_to '#', class: "dashboard__nav-sublink" do %>
+              <i class="fas fa-check-circle"></i>
+              <span>Completed</span>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</nav>

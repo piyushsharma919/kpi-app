@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Kpi" %></title>
+    <title><%= content_for(:title) || "Kpi Dashboard" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -16,15 +16,36 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
+    <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" %>
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <div class="container">
-      <%= yield %>
+  <body class="dashboard-layout">
+    <%= render "layouts/header" %>
+
+    <div class="dashboard">
+      <% if Current.user %>
+        <aside class="dashboard__sidebar">
+          <% if Current.user.role == 'employer' %>
+            <%= render "layouts/employer_nav" %>
+          <% else %>
+            <%= render "layouts/employee_nav" %>
+          <% end %>
+        </aside>
+      <% end %>
+
+      <main class="dashboard__main">
+        <div class="dashboard__content">
+          <%= render "layouts/breadcrumbs" %>
+          <%= render "layouts/flash_messages" %>
+          <div class="dashboard__content-wrapper">
+            <%= yield %>
+          </div>
+        </div>
+      </main>
     </div>
   </body>
 </html>

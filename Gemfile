@@ -40,9 +40,11 @@ gem "kamal", require: false
 gem "thruster", require: false
 
 # Linting and Code Quality
-gem "rubocop", require: false
-gem "rubocop-rails", require: false
-gem "rubocop-performance", require: false
+gem "rubocop-rails-omakase", require: false
+gem "font-awesome-sass"
+
+# Image Processing
+gem "image_processing", ">= 1.2"
 
 group :development, :test do
   # Testing Framework

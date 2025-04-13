@@ -1,15 +1,15 @@
-<div class="form-container">
-  <div class="form-wrapper">
-    <div class="form-header">
-      <h1 class="form-title">Forgot password?</h1>
-      <p class="form-subtitle">We'll email you reset instructions</p>
+<div class="sign-in__sign-in__form-container">
+  <div class="sign-in__sign-in__form-wrapper">
+    <div class="sign-in__form-header">
+      <h1 class="sign-in__form-title">Forgot password?</h1>
+      <p class="sign-in__form-subtitle">We'll email you reset instructions</p>
     </div>
 
-    <%= form_with url: passwords_path, class: "form form-stacked" do |form| %>
-      <div class="form-group">
-        <%= form.label :email_address, "Email address", class: "form-label" %>
+    <%= form_with url: passwords_path, class: "form sign-in__form-stacked" do |form| %>
+      <div class="sign-in__form-group">
+        <%= form.label :email_address, "Email address", class: "sign-in__form-label" %>
         <%= form.email_field :email_address,
-            class: "form-control",
+            class: "sign-in__form-control",
             required: true,
             autofocus: true,
             autocomplete: "username",
@@ -17,19 +17,19 @@
             value: params[:email_address] %>
       </div>
 
-      <div class="form-actions">
+      <div class="sign-in__form-actions">
         <%= form.submit "Email reset instructions", class: "button button--primary button--full" %>
       </div>
     <% end %>
 
-     <div class="form-divider">
-      <span class="form-divider-text">or</span>
+     <div class="sign-in__form-divider">
+      <span class="sign-in__form-divider-text">or</span>
     </div>
 
-    <div class="form-footer">
-      <p class="form-text">
+    <div class="sign-in__form-footer">
+      <p class="sign-in__form-text">
         Remembered your password?
-        <%= link_to "Sign in", new_session_path, class: "form-link" %>
+        <%= link_to "Sign in", new_session_path, class: "sign-in__form-link" %>
       </p>
     </div>
   </div>

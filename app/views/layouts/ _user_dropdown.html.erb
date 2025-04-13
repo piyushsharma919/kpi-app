@@ -1,0 +1,17 @@
+<div class="user-dropdown" data-controller="dropdown">
+  <button class="user-dropdown__trigger" data-action="dropdown#toggle">
+    <%= user_avatar(current_user) %>
+  </button>
+
+  <div class="user-dropdown__menu" data-dropdown-target="menu">
+    <%= link_to settings_path, class: "user-dropdown__item" do %>
+      <%= fa_icon "gear" %>
+      <span>Settings</span>
+    <% end %>
+
+    <%= button_to destroy_user_session_path, method: :delete, class: "user-dropdown__item" do %>
+      <%= fa_icon "sign-out" %>
+      <span>Logout</span>
+    <% end %>
+  </div>
+</div>

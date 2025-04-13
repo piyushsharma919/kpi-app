@@ -2,89 +2,70 @@
   Sign In Component
 ========================================================================== */
 
-.sign-in {
+.sign-in__form-container {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: var(--spacing-8) var(--spacing-4);
 }
 
-.sign-in__container {
+.sign-in__form-wrapper {
   width: 100%;
   max-width: 400px;
   background-color: var(--color-surface);
   border-radius: var(--border-radius-lg);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 16px -1px rgba(0, 0, 0, 0.2), 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   padding: var(--spacing-8);
 }
 
-.sign-in__header {
+.sign-in__form-header {
   text-align: center;
   margin-bottom: var(--spacing-8);
 }
 
-.sign-in__title {
+.sign-in__form-title {
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-bold);
   color: var(--color-text-dark);
   margin-bottom: var(--spacing-2);
 }
 
-.sign-in__subtitle {
+.sign-in__form-subtitle {
   font-size: var(--font-size-sm);
   color: var(--color-text-light);
 }
 
-.sign-in__form {
-  margin-bottom: var(--spacing-6);
-}
-
-.sign-in__footer {
+/* Form Footer */
+.sign-in__form-footer {
+  margin-top: var(--spacing-8);
   text-align: center;
-  padding-top: var(--spacing-6);
-  border-top: var(--border-width) solid var(--color-border);
 }
 
-.sign-in__text {
+.sign-in__form-text {
   font-size: var(--font-size-sm);
   color: var(--color-text-light);
 }
 
-.sign-in__link {
-  color: var(--color-primary);
-  font-weight: var(--font-weight-medium);
-  text-decoration: none;
-  transition: color var(--transition-duration) var(--transition-timing);
+.sign-in__form-divider {
+  position: relative;
+  text-align: center;
+  margin: var(--spacing-6) 0;
 }
 
-.sign-in__link:hover {
-  color: var(--color-primary-dark);
-  text-decoration: underline;
+.sign-in__form-divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--color-border);
 }
 
-.form-link {
+.sign-in__form-divider-text {
+  position: relative;
+  padding: 0 var(--spacing-4);
+  background-color: var(--color-surface);
+  color: var(--color-text-light);
   font-size: var(--font-size-sm);
-  color: var(--color-primary);
-  text-decoration: none;
-  transition: color var(--transition-duration) var(--transition-timing);
-}
-
-.form-link:hover {
-  color: var(--color-primary-dark);
-  text-decoration: underline;
-}
-
-/* Responsive Design */
-@media (max-width: 480px) {
-  .sign-in__container {
-    padding: var(--spacing-6);
-  }
-
-  .sign-in__title {
-    font-size: var(--font-size-xl);
-  }
-
-  .sign-in__subtitle {
-    font-size: var(--font-size-sm);
-  }
 }

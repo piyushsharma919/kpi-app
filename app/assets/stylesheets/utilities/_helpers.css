@@ -121,22 +121,6 @@
   padding-left: var(--spacing-4);
 }
 
-/* Flash Messages */
-.flash {
-  padding: var(--spacing-4) 0;
-  margin-bottom: var(--spacing-4);
-}
-
-.flash--notice {
-  background-color: var(--color-success);
-  color: var(--color-surface);
-}
-
-.flash--alert {
-  background-color: var(--color-error);
-  color: var(--color-surface);
-}
-
 @media (min-width: 480px) {
   .container {
     max-width: 480px;
