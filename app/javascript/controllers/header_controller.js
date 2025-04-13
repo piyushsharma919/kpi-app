@@ -1,10 +1,9 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["menu", "toggle"]
+  static targets = ["menu", "dropdown"]
 
   connect() {
-    // Close menu when clicking outside
     document.addEventListener("click", this.handleClickOutside.bind(this))
   }
 
@@ -12,13 +11,14 @@ export default class extends Controller {
     document.removeEventListener("click", this.handleClickOutside.bind(this))
   }
 
-  toggle() {
-    this.menuTarget.classList.toggle("is-active")
+  toggle(event) {
+    event.preventDefault()
+    this.dropdownTarget.classList.toggle("is-open")
   }
 
   handleClickOutside(event) {
-    if (!this.element.contains(event.target) && this.menuTarget.classList.contains("is-active")) {
-      this.menuTarget.classList.remove("is-active")
+    if (!this.element.contains(event.target)) {
+      this.dropdownTarget?.classList.remove("is-open")
     }
   }
 }

@@ -151,6 +151,8 @@ GEM
     ffi (1.17.1-arm-linux-musl)
     ffi (1.17.1-x86_64-linux-gnu)
     ffi (1.17.1-x86_64-linux-musl)
+    font-awesome-sass (6.7.2)
+      sassc (~> 2.0)
     fugit (1.11.1)
       et-orbi (~> 1, >= 1.2.11)
       raabro (~> 1.4)
@@ -159,6 +161,9 @@ GEM
     hashdiff (1.1.2)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
+    image_processing (1.14.0)
+      mini_magick (>= 4.9.5, < 6)
+      ruby-vips (>= 2.0.17, < 3)
     importmap-rails (2.1.0)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
@@ -206,6 +211,9 @@ GEM
     marcel (1.0.4)
     matrix (0.4.2)
     method_source (1.1.0)
+    mini_magick (5.2.0)
+      benchmark
+      logger
     mini_mime (1.1.5)
     minitest (5.25.5)
     msgpack (1.8.0)
@@ -363,8 +371,17 @@ GEM
       rack (>= 1.1)
       rubocop (>= 1.75.0, < 2.0)
       rubocop-ast (>= 1.38.0, < 2.0)
+    rubocop-rails-omakase (1.1.0)
+      rubocop (>= 1.72)
+      rubocop-performance (>= 1.24)
+      rubocop-rails (>= 2.30)
     ruby-progressbar (1.13.0)
+    ruby-vips (2.2.3)
+      ffi (~> 1.12)
+      logger
     rubyzip (2.4.1)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     securerandom (0.4.1)
     selenium-webdriver (4.31.0)
       base64 (~> 0.2)
@@ -470,6 +487,8 @@ DEPENDENCIES
   factory_bot_rails
   faker
   fast_jsonapi
+  font-awesome-sass
+  image_processing (>= 1.2)
   importmap-rails
   jbuilder
   kamal
@@ -485,9 +504,7 @@ DEPENDENCIES
   rails (~> 8.0.2)
   rails_stdout_logging
   rspec-rails
-  rubocop
-  rubocop-performance
-  rubocop-rails
+  rubocop-rails-omakase
   selenium-webdriver
   shoulda-matchers
   simplecov

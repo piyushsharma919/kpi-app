@@ -1,0 +1,58 @@
+<header class="header" data-controller="header">
+  <div class="container">
+    <nav class="header__nav">
+      <div class="header__brand">
+        <%= link_to root_path, class: "header__logo" do %>
+          <strong class="header__logo-text">Kpi-App</strong>
+        <% end %>
+      </div>
+
+      <div class="header__menu" data-header-target="menu">
+        <ul class="header__list">
+          <% if Current.user %>
+            <li class="header__item">
+              <div class="header__user-dropdown">
+                <button class="header__avatar-btn" data-action="click->header#toggle">
+                  <% if Current.user.avatar.attached? %>
+                    <%= image_tag Current.user.avatar, class: "header__avatar" %>
+                  <% else %>
+                    <div class="header__avatar-fallback">
+                      <%= Current.user.initials %>
+                    </div>
+                  <% end %>
+                </button>
+
+                <div class="header__dropdown-menu" data-header-target="dropdown">
+                  <div class="header__dropdown-greeting">
+                    <p class="header__dropdown-greeting-text">Hello, <%= Current.user.name %></p>
+                  </div>
+                  <%= link_to edit_user_path, class: "header__dropdown-item" do %>
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                  <% end %>
+                  <%= button_to session_path, method: :delete, class: "header__dropdown-item header__dropdown-button--danger" do %>
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                  <% end %>
+                </div>
+              </div>
+            </li>
+          <% else %>
+            <li class="header__item">
+              <%= link_to "Home", root_path, class: "header__link" %>
+            </li>
+            <li class="header__item">
+              <%= link_to "FAQ", "#", class: "header__link" %>
+            </li>
+            <li class="header__item">
+              <%= link_to "Terms", "#", class: "header__link" %>
+            </li>
+            <li class="header__item">
+              <%= link_to "Sign In", new_session_path, class: "header__link" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>

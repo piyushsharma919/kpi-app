@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,6 +17,7 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
+    <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" %>
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
@@ -25,68 +25,13 @@
   </head>
 
 <body class="public-layout">
-  <header class="public-header">
-    <div class="container">
-      <nav class="public-nav" data-controller="public-navigation">
-        <div class="public-nav__brand">
-          <%= link_to root_path, class: "public-nav__logo" do %>
-            <strong class="public-nav__logo-text">Kpi-App</strong>
-          <% end %>
-        </div>
-
-        <div class="public-nav__menu" data-public-navigation-target="menu">
-          <ul class="public-nav__list">
-            <li class="public-nav__item">
-              <%= link_to "Home", root_path, class: "public-nav__link" %>
-            </li>
-            <li class="public-nav__item">
-              <%= link_to "FAQ", "#", class: "public-nav__link" %>
-            </li>
-            <li class="public-nav__item">
-              <%= link_to "Terms", "#", class: "public-nav__link" %>
-            </li>
-            <li class="public-nav__item">
-              <%= link_to "Sign In", new_session_path, class: "public-nav__link" %>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-  </header>
+  <%= render "layouts/header" %>
 
   <main class="public-main">
-    <% if notice %>
-      <div class="flash flash--notice">
-        <div class="container">
-          <%= notice %>
-        </div>
-      </div>
-    <% end %>
-
-    <% if alert %>
-      <div class="flash flash--alert">
-        <div class="container">
-          <%= alert %>
-        </div>
-      </div>
-    <% end %>
-
+    <%= render "layouts/flash_messages" %>
     <%= yield %>
   </main>
 
-  <footer class="public-footer">
-    <div class="container">
-      <div class="public-footer__content">
-        <div class="public-footer__copyright">
-          &copy; <%= Time.current.year %> Your Company. All rights reserved.
-        </div>
-        <div class="public-footer__links">
-          <%= link_to "Privacy Policy", '#', class: "public-footer__link" %>
-          <%= link_to "Terms of Service", '#', class: "public-footer__link" %>
-          <%= link_to "Contact", '#', class: "public-footer__link" %>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <%= render "layouts/footer" %>
 </body>
 </html>

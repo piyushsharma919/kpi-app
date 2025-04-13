@@ -13,17 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
-/* Base */
-@import "base/variables";
-@import "base/reset";
-@import "base/typography";
-
-/* Layouts */
-@import "layouts/public";
-
-/* Components */
-@import "components/forms";
-
-/* Utilities */
-@import "utilities/helpers";
